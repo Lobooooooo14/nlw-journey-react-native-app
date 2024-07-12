@@ -1,26 +1,27 @@
-import { View, StatusBar } from "react-native";
-import { Slot } from "expo-router";
+import { View, StatusBar } from "react-native"
 
 import {
   useFonts,
   Inter_500Medium,
   Inter_400Regular,
-  Inter_600SemiBold,
-} from "@expo-google-fonts/inter";
+  Inter_600SemiBold
+} from "@expo-google-fonts/inter"
+import { Slot } from "expo-router"
 
-import { Loading } from "@/components/loading";
+import { Loading } from "@/components/loading"
 
-import "@/styles/global.css";
+import "@/styles/global.css"
+import "@/utils/dayjsLocaleConfig"
 
 function Layout() {
   const [fontsLoaded] = useFonts({
     Inter_500Medium,
     Inter_400Regular,
-    Inter_600SemiBold,
-  });
+    Inter_600SemiBold
+  })
 
   if (!fontsLoaded) {
-    return <Loading />;
+    return <Loading />
   }
 
   return (
@@ -32,7 +33,7 @@ function Layout() {
       />
       <Slot />
     </View>
-  );
+  )
 }
 
-export default Layout;
+export default Layout

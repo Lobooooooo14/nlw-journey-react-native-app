@@ -1,6 +1,7 @@
-import dayjs, { Dayjs } from "dayjs"
 import { DateData, CalendarUtils } from "react-native-calendars"
 import { MarkedDates } from "react-native-calendars/src/types"
+
+import dayjs, { Dayjs } from "dayjs"
 
 type OrderStartsAtAndEndsAt = {
   startsAt?: DateData
@@ -23,14 +24,14 @@ export type DatesSelected = {
 function orderStartsAtAndEndsAt({
   startsAt,
   endsAt,
-  selectedDay,
+  selectedDay
 }: OrderStartsAtAndEndsAt): DatesSelected {
   if (!startsAt) {
     return {
       startsAt: selectedDay,
       endsAt: undefined,
       formatDatesInText: "",
-      dates: getIntervalDates(selectedDay, selectedDay),
+      dates: getIntervalDates(selectedDay, selectedDay)
     }
   }
 
@@ -39,7 +40,7 @@ function orderStartsAtAndEndsAt({
       startsAt: selectedDay,
       endsAt: undefined,
       formatDatesInText: "",
-      dates: getIntervalDates(selectedDay, selectedDay),
+      dates: getIntervalDates(selectedDay, selectedDay)
     }
   }
 
@@ -50,8 +51,8 @@ function orderStartsAtAndEndsAt({
       dates: getIntervalDates(selectedDay, startsAt),
       formatDatesInText: formatDatesInText({
         startsAt: dayjs(selectedDay.dateString),
-        endsAt: dayjs(startsAt.dateString),
-      }),
+        endsAt: dayjs(startsAt.dateString)
+      })
     }
   }
 
@@ -61,8 +62,8 @@ function orderStartsAtAndEndsAt({
     dates: getIntervalDates(startsAt, selectedDay),
     formatDatesInText: formatDatesInText({
       startsAt: dayjs(startsAt.dateString),
-      endsAt: dayjs(selectedDay.dateString),
-    }),
+      endsAt: dayjs(selectedDay.dateString)
+    })
   }
 }
 
@@ -92,8 +93,8 @@ function getIntervalDates(startsAt: DateData, endsAt: DateData): MarkedDates {
     interval = {
       ...interval,
       [date]: {
-        selected: true,
-      },
+        selected: true
+      }
     }
   })
 
@@ -103,5 +104,5 @@ function getIntervalDates(startsAt: DateData, endsAt: DateData): MarkedDates {
 export const calendarUtils = {
   orderStartsAtAndEndsAt,
   formatDatesInText,
-  dateToCalendarDate: CalendarUtils.getCalendarDateString,
+  dateToCalendarDate: CalendarUtils.getCalendarDateString
 }
