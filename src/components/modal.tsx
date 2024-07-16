@@ -41,7 +41,7 @@ export function Modal({
 
                 {onClose && (
                   <TouchableOpacity activeOpacity={0.7} onPress={onClose}>
-                    <X color={colors.zinc[400]} size={20} />
+                    <X color={colors.zinc[400]} size={30} />
                   </TouchableOpacity>
                 )}
               </View>
